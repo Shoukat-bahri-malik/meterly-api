@@ -22,4 +22,11 @@ const billingSchema = new Schema({
   updatedBy: { type: Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true });
 
+// Compound index for period (year + month) per meter and user
+billingSchema.index({ userId: 1 });
+billingSchema.index({ meterId: 1 });
+billingSchema.index({ periodYear: 1, periodMonth: 1 });
+billingSchema.index({ status: 1 });
+billingSchema.index({ isActive: 1 });
+
 module.exports = mongoose.model('Billing', billingSchema);
