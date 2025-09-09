@@ -28,8 +28,7 @@ const userSchema = new Schema({
   updatedBy: { type: Schema.Types.ObjectId, ref: 'User' },
 }, { timestamps: true });
 
-userSchema.index({ email: 1 }, { unique: true });
+
 userSchema.index({ role: 1 });
-userSchema.index({ isActive: 1 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -14,7 +14,7 @@ const sessionSchema = new Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-sessionSchema.index({ token: 1 }, { unique: true });
+
 sessionSchema.index({ userId: 1 });
 sessionSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
