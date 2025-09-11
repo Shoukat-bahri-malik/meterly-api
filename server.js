@@ -5,6 +5,12 @@ const { ConnectDB } = require('./utils/db');
 
 ConnectDB();
 const app = express();
+
+// Correct way to add CORS
+const cors = require('cors');
+app.use(cors());
+
+
 app.use(express.json());
 
 // Add all routes
